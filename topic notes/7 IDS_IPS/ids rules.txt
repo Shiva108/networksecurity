@@ -1,0 +1,24 @@
+##### syn flood detect
+alert tcp any any -> any any (msg:"TCP SYN flood attack detected"; flags:S; threshold: type threshold, track by_dst, count 20 , seconds 60; sid: 90000001; rev:1;)
+
+##### detect speciik download file
+alert tcp any any -> any any (msg: "Putty being downloaded"; uricontent: "putty.exe"; nocase; sid:90005238; rev:3)
+
+##### detect icmp
+alert icmp any any -> $HOME_NET any (msg: "PING attemted locally"; classtype:icmp-event; priority:3;  sid:9000004;rev:1)
+#alert icmp any any -> [192.168.65.0/24] any (msg: "PING attemted locally"; classtype:icmp-event; priority:3;  sid:9000005;rev:1)
+
+##### detect ssh
+alert tcp any 22 -> any any (msg:"ssh detected5"; content:"ssh"; flow:to_client, established; nocase; sid:9100006; )
+
+
+
+########### detect access to malicius host
+alert tcp $HOME_NET any -> 5.103.133.177 80 (msg: "Kallasoft http attempt"; priority:2; sid:9000001; rev:1;)
+alert tcp $HOME_NET any -> 5.103.133.177 443 (msg:"Kallasoft https attempt"; priority:2; sid:9000002; rev:1;)
+alert tcp $HOME_NET any -> 5.103.133.177 20:21 (msg: "Kallasoft ftp attempt"; priority:6; sid:9000003;rev:1;)
+#alert tcp any any -> any any (msg: "Kallasoft http attempt2"; content: "http|a3|//kallasoft.dk"; nocase; sid:90000010; rev:1;)
+
+######################
+
+

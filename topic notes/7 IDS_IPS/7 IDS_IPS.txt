@@ -1,0 +1,31 @@
+## Snortrules ##
+IDS
+##########################################################################################
+
+## For at redigere rules
+sudo nano /etc/nsm/rules/local.rules
+
+## Indsæet linjen
+alert tcp any any -> any any (content:"www.facebook.com"; msg:"User on Facebook"; sid:9000007; rev:1;)
+
+## Opdater rules bagefter
+
+sudo rule-update
+
+#åben en browser på en client på samme netværk og indtast www.facebook.com
+
+
+##########################################################################################
+
+## For at redigere rules
+sudo nano /etc/nsm/rules/local.rules
+
+## Indsæet linjen
+alert tcp any any -> any any (content:"www.instagram.com"; msg:"User tried instagram"; sid:9000008; rev:1;)
+
+## Opdater rules bagefter
+
+sudo rule-update
+
+#åben en browser på en client på samme netværk og indtast www.facebook.com
+
