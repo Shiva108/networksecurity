@@ -1,0 +1,234 @@
+niels@lubuntu17:~$ sudo nmap -n -sS -sV --max-rtt-timeout 500ms 192.168.1.0/24
+            Starting Nmap 7.60 ( https://nmap.org ) at 2017-09-25 15:42 CEST
+
+            Nmap scan report for 192.168.1.1
+            Host is up (0.010s latency).
+            Not shown: 995 filtered ports
+            PORT     STATE SERVICE    VERSION
+            22/tcp   open  ssh        OpenSSH 7.2 (protocol 2.0)
+            53/tcp   open  domain
+            80/tcp   open  http       nginx
+            443/tcp  open  ssl/http   nginx
+Squid --->  3128/tcp open  http-proxy Squid http proxy 3.5.26
+            MAC Address: 02:1F:D3:65:B6:00 (Unknown)
+
+FW----->    Nmap scan report for 192.168.1.2
+            Host is up (0.015s latency).
+            Not shown: 998 filtered ports
+            PORT     STATE  SERVICE       VERSION
+            22/tcp   open   ssh           OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
+            5001/tcp closed commplex-link
+            MAC Address: 00:90:F5:D7:E6:BF (Clevo)
+            Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+            Nmap scan report for 192.168.1.3
+            Host is up (0.010s latency).
+            Not shown: 998 filtered ports
+            PORT     STATE  SERVICE       VERSION
+            22/tcp   open   ssh           OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
+            5001/tcp closed commplex-link
+            MAC Address: 00:90:F5:D7:E6:BF (Clevo)
+            Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+            Nmap scan report for 192.168.1.5
+            Host is up (0.035s latency).
+            Not shown: 992 filtered ports
+            PORT     STATE SERVICE      VERSION
+            80/tcp   open  http         Microsoft IIS httpd 10.0
+            135/tcp  open  msrpc        Microsoft Windows RPC
+            139/tcp  open  netbios-ssn  Microsoft Windows netbios-ssn
+            445/tcp  open  microsoft-ds Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP)
+            1801/tcp open  msmq?
+            2103/tcp open  msrpc        Microsoft Windows RPC
+            2105/tcp open  msrpc        Microsoft Windows RPC
+            2107/tcp open  msrpc        Microsoft Windows RPC
+            MAC Address: 98:DE:D0:1A:1D:24 (Tp-link Technologies)
+            Service Info: Host: BETTINA-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+            Nmap scan report for 192.168.1.7
+            Host is up (0.077s latency).
+            Not shown: 987 closed ports
+            PORT     STATE    SERVICE     VERSION
+            22/tcp   open     ssh         OpenSSH 6.8p1 (protocol 2.0; HPN-SSH patch 14v6)
+            53/tcp   open     tcpwrapped
+            80/tcp   open     http        nginx
+            111/tcp  open     rpcbind     2-4 (RPC #100000)
+            139/tcp  open     netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+            161/tcp  open     snmp?
+            443/tcp  open     ssl/http    nginx
+            445/tcp  open     netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+            2049/tcp open     nfs         2-3 (RPC #100003)
+            3260/tcp filtered iscsi
+            3261/tcp filtered winshadow
+            5000/tcp open     http        nginx
+            5001/tcp open     ssl/http    nginx
+            MAC Address: 00:11:32:4E:93:F5 (Synology Incorporated)
+            Service Info: Host: SYN151501
+
+            Nmap scan report for 192.168.1.8
+            Host is up (0.014s latency).
+            Not shown: 995 closed ports
+            PORT     STATE SERVICE    VERSION
+            80/tcp   open  http
+            515/tcp  open  printer?
+            631/tcp  open  ipp
+            2000/tcp open  jetdirect  JetDirect
+            9100/tcp open  jetdirect?
+            2 services unrecognized despite returning data. If you know the service/version, please
+            submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+            ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+            SF-Port80-TCP:V=7.60%I=7%D=9/25%Time=59C90BCB%P=x86_64-unknown-linux-gnu%r
+            SF:(GetRequest,3EB,"HTTP/1\.0\x20200\x20OK\r\nConnection:\x20close\r\nCont
+            SF:ent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x20858\r\nC
+            SF:ache-Control:\x20max-age=0,\x20no-store,\x20no-cache\r\n\r\n<html>\r\n<
+            SF:head>\r\n<link\x20rel=\"shortcut\x20icon\"\x20href=\"/sws/images/fav\.i
+            SF:co\"\x20type=\"image/x-icon\"\x20/>\r\n<script\x20type=\"text/javascrip
+            SF:t\"\x20src=\"sws/util/cookie\.js\"></script>\x20\x20\r\n<script\x20lang
+            SF:uage=\"JavaScript\"\x20type=\"text/javascript\">\r\n\r\n<!--\r\n//\x20t
+            SF:he\x20end\x20of\x20Cookie\x20related\x20function\r\nfunction\x20Redirec
+            SF:tToSWS\(\)\r\n{\r\n\tvar\x20debugMode\x20=\x20\(\"\$\$GSI_TCPIP_IP_ADDR
+            SF:\$\$\"\.indexOf\(\"\.\"\)\x20>\x200\)\x20\?\x20false\x20:\x20true;\r\n\
+            SF:r\n\tif\(debugMode\)\x20{\r\n\t\tlocation\x20=\x20\"sws/index\.html\";\
+            SF:r\n\t}\r\n\telse\x20{\r\n\t\tlocation\x20=\x20\"/sws/index\.html\";\r\n
+            SF:\t}\r\n}\r\n\r\nRedirectToSWS\(\);\r\n//-->\r\n</script>\r\n</head>\r\n
+            SF:<NOSCRIPT>\r\n<center>\r\n<font\x20size=\"3\">\r\n<b>This\x20Page\x20Re
+            SF:quires\x20JavaScript\x201\.1</b></font>\r\n<p><font\x20size=\"2\">Your\
+            SF:x20browser\x20either\x20does\x20not\x20support\x20JavaScript,\x20or\x20
+            SF:it\x20has\x20JavaScript\x20support\x20disabled\.\x20\r\nIf\x20you\x20wa
+            SF:nt\x20to\x20correctly\x20view\x20this\x20pa")%r(FourOhFourRequest,19E,"
+            SF:HTTP/1\.0\x20404\x20Not\x20Found\r\nConnection:\x20close\r\nContent-Typ
+            SF:e:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x20262\r\nCache-Co
+            SF:ntrol:\x20max-age=0,\x20no-store,\x20no-cache\r\n\r\n<!DOCTYPE\x20HTML\
+            SF:x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x203\.2//EN\">\n<HTML>\n<HEAD>\n<TIT
+            SF:LE>Invalid\x20Request</TITLE>\n</HEAD>\n\n<BODY\x20BGCOLOR=\"#FFFFFF\"\
+            SF:x20TEXT=\"#000000\">\n<CENTER>\n<FONT\x20SIZE=\"\+2\"\x20COLOR=\"#FFFFF
+            SF:F\"\x20ALIGN=\"Center\">\n</FONT>\n<B>Invalid\x20Request\.\x20Some\x20E
+            SF:rror</B>\n</BODY>\n\n</HTML>\n\n");
+            ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+            SF-Port631-TCP:V=7.60%I=7%D=9/25%Time=59C90BCB%P=x86_64-unknown-linux-gnu%
+            SF:r(GetRequest,1A2,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nConnection:\x20
+            SF:close\r\nContent-Type:\x20text/html\r\n;\x20charset=utf-8\r\nContent-Le
+            SF:ngth:\x20262\r\nCache-Control:\x20max-age=0,\x20no-store,\x20no-cache\r
+            SF:\n\r\n<!DOCTYPE\x20HTML\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x203\.2//EN\
+            SF:">\n<HTML>\n<HEAD>\n<TITLE>Invalid\x20Request</TITLE>\n</HEAD>\n\n<BODY
+            SF:\x20BGCOLOR=\"#FFFFFF\"\x20TEXT=\"#000000\">\n<CENTER>\n<FONT\x20SIZE=\
+            SF:"\+2\"\x20COLOR=\"#FFFFFF\"\x20ALIGN=\"Center\">\n</FONT>\n<B>Invalid\x
+            SF:20Request\.\x20Some\x20Error</B>\n</BODY>\n\n</HTML>\n\n")%r(FourOhFour
+            SF:Request,1A2,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nConnection:\x20close
+            SF:\r\nContent-Type:\x20text/html\r\n;\x20charset=utf-8\r\nContent-Length:
+            SF:\x20262\r\nCache-Control:\x20max-age=0,\x20no-store,\x20no-cache\r\n\r\
+            SF:n<!DOCTYPE\x20HTML\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x203\.2//EN\">\n<
+            SF:HTML>\n<HEAD>\n<TITLE>Invalid\x20Request</TITLE>\n</HEAD>\n\n<BODY\x20B
+            SF:GCOLOR=\"#FFFFFF\"\x20TEXT=\"#000000\">\n<CENTER>\n<FONT\x20SIZE=\"\+2\
+            SF:"\x20COLOR=\"#FFFFFF\"\x20ALIGN=\"Center\">\n</FONT>\n<B>Invalid\x20Req
+            SF:uest\.\x20Some\x20Error</B>\n</BODY>\n\n</HTML>\n\n");
+            MAC Address: 00:15:99:8A:A0:39 (Samsung Electronics)
+            Service Info: Device: printer
+
+            Nmap scan report for 192.168.1.10
+            Host is up (0.015s latency).
+            Not shown: 999 filtered ports
+            PORT   STATE SERVICE VERSION
+            22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+            MAC Address: 00:21:F6:00:00:08 (Oracle)
+            Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+            Nmap scan report for 192.168.1.12
+            Host is up (0.017s latency).
+            Not shown: 998 filtered ports
+            PORT     STATE SERVICE VERSION
+            111/tcp  open  rpcbind 2-4 (RPC #100000)
+            2049/tcp open  nfs_acl 2-3 (RPC #100227)
+            MAC Address: 00:21:F6:00:00:01 (Oracle)
+
+            Nmap scan report for 192.168.1.20
+            Host is up (0.0035s latency).
+            Not shown: 999 closed ports
+            PORT   STATE SERVICE VERSION
+            22/tcp open  ssh     Dropbear sshd 2016.74 (protocol 2.0)
+            MAC Address: 80:2A:A8:93:D7:01 (Ubiquiti Networks)
+            Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+            Nmap scan report for 192.168.1.50
+            Host is up (0.0036s latency).
+            Not shown: 997 closed ports
+            PORT   STATE SERVICE VERSION
+            22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
+            25/tcp open  smtp    Postfix smtpd
+            80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+            MAC Address: 00:21:F6:50:87:E1 (Oracle)
+            Service Info: Host:  monit04.localdomain; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+            Nmap scan report for 192.168.1.109
+            Host is up (0.0033s latency).
+            Not shown: 999 closed ports
+            PORT   STATE SERVICE VERSION
+            80/tcp open  http    SiliconDust HDHomeRun HDHR3-EU DVR http config 20161117 (device ID: 12203FD2)
+            MAC Address: 00:18:DD:22:03:FD (Silicondust Engineering)
+            Service Info: Device: media device; CPE: cpe:/h:silicondust:hdhomerun
+
+            Nmap scan report for 192.168.1.200
+            Host is up (0.0030s latency).
+            Not shown: 993 closed ports
+            PORT      STATE SERVICE    VERSION
+            22/tcp    open  ssh        OpenSSH 5.3 (protocol 2.0)
+            111/tcp   open  rpcbind    2-4 (RPC #100000)
+            6901/tcp  open  tcpwrapped
+            8002/tcp  open  oracle-vs  Oracle Virtual Service Agent (Xen)
+            8899/tcp  open  ssl/http   BaseHTTPServer 0.3 (Python 2.6.6)
+            10001/tcp open  tcpwrapped
+            10004/tcp open  tcpwrapped
+            MAC Address: 2C:41:38:A7:E8:AE (Hewlett Packard)
+
+            Nmap scan report for 192.168.1.202
+            Host is up (0.0032s latency).
+            Not shown: 993 closed ports
+            PORT      STATE SERVICE    VERSION
+            22/tcp    open  ssh        OpenSSH 5.3 (protocol 2.0)
+            111/tcp   open  rpcbind    2-4 (RPC #100000)
+            6901/tcp  open  tcpwrapped
+            8002/tcp  open  oracle-vs  Oracle Virtual Service Agent (Xen)
+            8899/tcp  open  ssl/http   BaseHTTPServer 0.3 (Python 2.6.6)
+            10001/tcp open  tcpwrapped
+            10004/tcp open  tcpwrapped
+            MAC Address: 2C:41:38:A7:E8:AE (Hewlett Packard)
+
+            Nmap scan report for 192.168.1.223
+            Host is up (0.014s latency).
+            Not shown: 999 closed ports
+            PORT   STATE SERVICE VERSION
+            80/tcp open  http
+            1 service unrecognized despite returning data. If you know the service/version, please
+            submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+            SF-Port80-TCP:V=7.60%I=7%D=9/25%Time=59C907D4%P=x86_64-unknown-linux-gnu%r
+            SF:(GetRequest,8D8,"HTTP/1\.0\x20200\x20OK\r\nConnection:\x20close\r\nCach
+            SF:e-Control:\x20no-cache\r\nPragma:\x20no-cache\r\nExpires:\x20-1\r\n\r\n
+            SF:<SCRIPT\x20language=\"javascript\">\r\nvar\x20logonInfo\x20=\x20new\x20
+            SF:Array\(\r\n\t5,/\*\xb4\xed\xce\xf3\xc0\xe0\xd0\xcd,\x200:\xce\xde\xb4\x
+            SF:ed\xce\xf3;1:\xd3\xc3\xbb\xa7\xc3\xfb\xbb\xf2\xd5\xdf\xc3\xdc\xc2\xeb\x
+            SF:b4\xed\xce\xf3;2:\xb8\xc3\xd3\xc3\xbb\xa7\xb2\xbb\xd4\xca\xd0\xed\xb5\x
+            SF:c7\xc2\xbc;3:\xb8\xc3\xd3\xc3\xbb\xa7\xb5\xc7\xc2\xbc\xca\xfd\xd2\xd1\x
+            SF:c2\xfa\.;4\xb5\xc7\xc2\xbc\xd3\xc3\xbb\xa7\xca\xfd\xd2\xd1\xc2\xfa\xa3\
+            SF:xac\xd7\xee\xb6\xe0\xd6\xbb\xc4\xdc\xd4\xca\xd0\xed16\xb8\xf6\xd3\xc3\x
+            SF:bb\xa7\xcd\xac\xca\xb1\xb5\xc7\xc2\xbc;5\xd3\xc3\xbb\xa7\xbb\xe1\xbb\xb
+            SF:0\xb3\xac\xca\xb1\*/\r\n\t0,0\);\r\nvar\x20g_Lan\x20=1;\r\nvar\x20g_yea
+            SF:r=2013;\r\n</SCRIPT>\r\n<!DOCTYPE\x20html>\r\n\t<HEAD>\r\n\t<meta\x20ch
+            SF:arset=\"gb2312\"/>\r\n\t<link\x20rel=\"stylesheet\"\x20href=\"logon\.cs
+            SF:s\"/>\r\n\t<script\x20language=\"javascript\"\x20src=\"globalString\.js
+            SF:\"\x20type=\"text/javascript\"></script>\r\n\t<script\x20language=\"jav
+            SF:ascript\"\x20src=\"logon\.js\"\x20type=\"text/javascript\"></script>\r\
+            SF:n\t<SCRIPT\x20language=\"javascript\">\r\n\tif\(window\.parent\x20!=\x2
+            SF:0window\)\r\n\t{\r\n\t\twindow\.parent\.location\x20=\x20\"/\";\r\n\t}\
+            SF:r\n\tvar\x20errType\x20=\x20logonInfo\[0\];\r\n\twindow\.onload\x20=\x2
+            SF:0function\(\)\r\n\t{\r\n\t\tif\(errType\x20==\x200\x20&&\x20\(-1!=top\.
+            SF:location\.href\.indexOf\(\"logon\.cgi\"\)\x20\r\n\t\t\|\|\x20-1!=top\.l
+            SF:ocation\.href\.indexOf\(\"lupg_abort\.cg");
+            MAC Address: 14:CC:20:0E:B0:F9 (Tp-link Technologies)
+
+            Nmap scan report for 192.168.1.24
+            Host is up (0.000012s latency).
+            All 1000 scanned ports on 192.168.1.24 are closed
+
+            Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+            Nmap done: 256 IP addresses (14 hosts up) scanned in 73.28 seconds
+

@@ -1,0 +1,46 @@
+
+
+Server  .24    its10
+
+
+Køres lokalt med SNMP-sim
+
+
+------------------------------------------------------
+
+Port 161 is taken for something using 1161
+
+
+
+   sudo snmpsimd --agent-udpv4-endpoint=127.0.0.1:1161 --process-user=nobody \
+        --process-group=nogroup --logging-method=file:/var/log/snmpsim/snmpsimd.log
+
+   In a different terminal enter:
+
+      # -c  community
+      #     Angives relativt til /usr/snmpsim/data, sådan at for community
+      #        recorded/linksys-system
+      #     ligger i
+      #        /usr/snmpsim/data/recorded/linksys-system
+      #
+      snmpwalk -v2c -c recorded/linksys-system 127.0.0.1:1161
+         iso.3.6.1.2.1.1.1.0 = STRING: "BEFSX41"
+         iso.3.6.1.2.1.1.2.0 = OID: iso.3.6.1.4.1.3955.1.1
+         iso.3.6.1.2.1.1.3.0 = Timeticks: (638239) 1:46:22.39
+         iso.3.6.1.2.1.1.4.0 = STRING: "Linksys"
+         iso.3.6.1.2.1.1.5.0 = STRING: "isp-gw"
+         iso.3.6.1.2.1.1.6.0 = STRING: "4, Petersburger strasse, Berlin, Germany"
+         iso.3.6.1.2.1.1.8.0 = Timeticks: (4) 0:00:00.04
+         iso.3.6.1.2.1.1.8.0 = No more variables left in this MIB View (It is past the end of the MIB tree)
+
+
+
+
+   #  Walk host resources
+   #
+   #  1.3.6.1.2.1.25 (iso.org.dod.internet.mgmt.mib-2.host)
+   snmpwalk -v2c -c mib2dev/host-resources-mib 127.0.0.1:1161 
+   snmpget  -v2c -c mib2dev/host-resources-mib 127.0.0.1:1161 iso.3.6.1.2.1.25.1.1.0
+
+
+snmpwalk -v2c -c public/1.3.6.1.6.1.1.0/127.0.0.1 127.0.0.1:1161 
